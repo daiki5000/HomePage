@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>求人情報</title>
-</head>
+<head th:replace="com/head :: head_fragment(title = '求人情報', scripts = ~{}, links = ~{})"></head>
 <body>
+	<div th:insert="~{com/header}"></div>
 求人内容を記入します
+
+	<!-- フッター -->
+	<div th:insert="~{com/footer}"></div>
 </body>
 </html>

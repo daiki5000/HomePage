@@ -1,10 +1,77 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-<meta charset="UTF-8">
-<title>お問い合わせ</title>
+<head th:replace="com/head :: head_fragment(title = 'お問い合わせ	', scripts = ~{::script}, links = ~{::link})">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/contact.css}"/>
+	<script type="text/javascript" th:src="@{/js/contact.js}"></script>
 </head>
-<body>
-問い合わせを記入します
+<body class="page-contact">
+	<!-- 画像 -->
+	<div class="page_ttl flex flex-a-ctr txt-ctr">
+		<h2 class="inner">
+			<span class="page_ttl-en font-en">contact</span>
+			<span class="page_ttl-jp font-jp-bold typesquare_option">お問い合わせ</span>
+		</h2>
+	</div>
+	
+	<!-- ヘッダー -->
+	<div th:insert="~{com/header}"></div>
+	
+	<!-- メッセージ -->
+	<p class="contact_msg" style="text-align: center;">興味を持っていただきありがとうございます<br>
+		下記フォーム、またはお電話から、お気軽にお問合せください
+	</p>
+	
+	<!-- 電話番号 -->
+	<p class="cta_tel txt-ctr">
+		<a href="tel:0120123123" class="gnav--link" style="pointer-events: none; display: inline-block;">
+			<span>
+				<strong>
+					<span class="num font-en">0120-123-123</span>
+				</strong>
+				<br>
+				<small>［受付時間］ 9:00～18:00(土日祝 定休)</small>
+			</span>
+		</a>
+	</p>
+	
+	<!-- フォーム -->
+	<div class="formSetting">
+		<form method="post" th:action="@{/contact/submit}" th:object="${contactForm}">
+			<p>
+				<label>氏名</label>
+				<span style="color:red;">*</span>
+				<br>
+				<input type="text" class="form-control" th:field="*{name}">
+			</p>
+			<p>
+				<label>メールアドレス</label>
+				<span style="color:red;">*</span>
+				<br>
+				<input type="email" class="form-control" placeholder="email@address.com" th:field="*{mail}">
+			</p>
+			<p>
+				<label>電話番号</label>
+				<span style="color:red;">*</span>
+				<br>
+				<input type="tel" class="form-control" th:field="*{tel}">
+			</p>
+			<p>
+				<label>用件</label>
+				<span style="color:red;">*</span>
+				<br>
+				<input type="text" class="form-control" th:field="*{title}">
+			</p>
+			<p>
+				<label>メッセージ内容</label>
+				<span style="color:red;">*</span>
+				<br>
+				<textarea class="form-control" rows="5" th:field="*{content}"></textarea>
+			</p>
+			<input type="submit" class="btn btn-outline-success btn-lg btn-block" value="送信">
+		</form>
+	</div>
+	
+	<!-- フッター -->
+	<div th:insert="~{com/footer}"></div>
 </body>
 </html>

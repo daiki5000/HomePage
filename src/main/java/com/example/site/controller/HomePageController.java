@@ -1,13 +1,15 @@
 package com.example.site.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.site.common.CommonConst;
+import com.example.site.form.ContactForm;
 
 @Controller
-@RequestMapping
 public class HomePageController {
 
 	/**
@@ -46,7 +48,17 @@ public class HomePageController {
 	 * 問い合わせページ
 	 */
 	@GetMapping(CommonConst.CONTACT)
-	public String showContact() {
+	public String showContact(@ModelAttribute ContactForm form, Model model) {
 		return CommonConst.CONTACT;
+	}
+	
+	/**
+	 * 問い合わせ内容
+	 */
+	@PostMapping(CommonConst.CONTACT + "/submit")
+	public String getContact(@ModelAttribute ContactForm form, Model model) {
+		// メッセージセット
+		model.addAttribute("infoMessage", "送信完了しました。");
+		return CommonConst.TOP;
 	}
 }

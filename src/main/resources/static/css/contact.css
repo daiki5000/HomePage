@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+body {
+	font-family: HonMinSink-B, "Yu Mincho", YuMincho, "Hiragino Mincho ProN", "Hiragino Mincho Pro", HGS明朝E, メイリオ, Meiryo, serif;
+}
+
+@media screen and (min-width: 768px)
+* {
+    font-feature-settings: "palt";
+}
+
+*, *:after, *::before {
+    box-sizing: border-box;
+}
+
+.page_ttl, .page_ttl_in::before {
+	background-image: url(/img/contact_back.jpg);
+}
+
+.page_ttl {
+	position: relative;
+    z-index: 10;
+    overflow: hidden;
+    height: 320px;
+    line-height: 1.5;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+}
+
+.img_font {
+ 	color: black;
+ 	text-align: center;
+ 	height: 160px;
+ }
+ 
+.txt-ctr, .txt-ctr-pc {
+    text-align: center;
+}
+
+.flex-a-ctr {
+    align-items: center;
+}
+
+.flex {
+    display: flex;
+}
+
+@media screen and (max-width: 1080px)
+.inner, .inner-lg {
+    width: 87%;
+    max-width: 100%;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.page_ttl-en {
+    display: block;
+    font-size: 200%;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.page_ttl-jp {
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+
+.font-en {
+    font-family: 'Crimson Text', serif;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+.contact_msg {
+	height: 100px;
+}
+
+.page-contact .cta_tel a {
+	color: black;
+    display: inline-block!important;
+    margin-bottom: 16px;
+    padding: 20px 64px;
+    background-color: #eee;
+    line-height: 1;
+}
+
+.formSetting {
+	border-top: solid 1px #eee;
+	padding-top: 30px;
+	width: 70%;
+	margin:0 auto;
+}
