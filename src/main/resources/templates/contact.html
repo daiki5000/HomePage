@@ -26,6 +26,7 @@
 		<a href="tel:0120123123" class="gnav--link" style="pointer-events: none; display: inline-block;">
 			<span>
 				<strong>
+					<i class="fa-solid fa-phone-volume"></i>
 					<span class="num font-en">0120-123-123</span>
 				</strong>
 				<br>
@@ -36,22 +37,22 @@
 	
 	<!-- フォーム -->
 	<div class="formSetting">
-		<form method="post" th:action="@{/contact/submit}" th:object="${contactForm}">
+		<form method="post" th:action="@{/contact}" th:object="${contactForm}">
 			<p>
 				<label>氏名</label>
 				<span style="color:red;">*</span>
 				<br>
 				<input type="text" class="form-control" th:field="*{name}">
+				<span class="valid" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
 			</p>
 			<p>
 				<label>メールアドレス</label>
-				<span style="color:red;">*</span>
 				<br>
 				<input type="email" class="form-control" placeholder="email@address.com" th:field="*{mail}">
+				<span class="valid" th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></span>
 			</p>
 			<p>
 				<label>電話番号</label>
-				<span style="color:red;">*</span>
 				<br>
 				<input type="tel" class="form-control" th:field="*{tel}">
 			</p>
@@ -60,14 +61,16 @@
 				<span style="color:red;">*</span>
 				<br>
 				<input type="text" class="form-control" th:field="*{title}">
+				<span class="valid" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></span>
 			</p>
 			<p>
 				<label>メッセージ内容</label>
 				<span style="color:red;">*</span>
 				<br>
 				<textarea class="form-control" rows="5" th:field="*{content}"></textarea>
+				<span class="valid" th:if="${#fields.hasErrors('content')}" th:errors="*{content}"></span>
 			</p>
-			<input type="submit" class="btn btn-outline-success btn-lg btn-block" value="送信">
+			<input type="submit" id="submitBtn" class="btn btn-outline-success btn-lg btn-block" value="送信">
 		</form>
 	</div>
 	
