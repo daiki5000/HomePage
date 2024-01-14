@@ -62,6 +62,8 @@ public class HomePageController {
 	public String getContact(@Valid ContactForm form, BindingResult bindingResult, Model model) {
 		
 		if (bindingResult.hasErrors()) {
+			// エラーメッセージをセット
+			
 			return CommonConst.CONTACT;
 		}
 		// メッセージセット
